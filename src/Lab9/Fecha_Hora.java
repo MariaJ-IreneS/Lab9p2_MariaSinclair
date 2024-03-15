@@ -22,7 +22,7 @@ public class Fecha_Hora implements Runnable {
             hora.setText(fech.format(hour));
             fecha.setText(date.format(hour));
             try {
-                Thread.sleep(50);
+                Thread.sleep(0);
             } catch (InterruptedException ex) {
 
             }
