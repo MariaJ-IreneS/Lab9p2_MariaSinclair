@@ -1,14 +1,20 @@
 package Lab9;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class LabHilos extends javax.swing.JFrame {
 
     public LabHilos() {
         initComponents();
-        mostrar = new Fecha_Hora(jl_hora, jl_fecha);
+        mostrar = new Fecha_Hora(jl_horaactual, jl_fecha);
         Thread hiloDate = new Thread(mostrar);
         hiloDate.start();
     }
@@ -22,88 +28,88 @@ public class LabHilos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jl_fecha = new javax.swing.JLabel();
+        panel_fondo = new javax.swing.JPanel();
+        panel_bienvenido = new javax.swing.JPanel();
+        jl_bienvenido = new javax.swing.JLabel();
+        jl_fechahoy = new javax.swing.JLabel();
         jl_hora = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        jl_fecha = new javax.swing.JLabel();
+        jl_horaactual = new javax.swing.JLabel();
+        jl_compu = new javax.swing.JLabel();
+        jl_empresa = new javax.swing.JLabel();
         jb_subir = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
+        jl_subiendo = new javax.swing.JLabel();
         jp_barra = new javax.swing.JProgressBar();
-        jLabel7 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        lj_archivo = new javax.swing.JLabel();
+        area = new javax.swing.JScrollPane();
         jt_area = new javax.swing.JTextArea();
         jb_agregar = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
+        jl_logo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
+        panel_fondo.setBackground(new java.awt.Color(255, 204, 204));
 
-        jPanel2.setBackground(new java.awt.Color(255, 153, 153));
+        panel_bienvenido.setBackground(new java.awt.Color(255, 153, 153));
 
-        jLabel1.setFont(new java.awt.Font("Wide Latin", 3, 14)); // NOI18N
-        jLabel1.setText("B I E N V E N I D O");
+        jl_bienvenido.setFont(new java.awt.Font("Wide Latin", 3, 14)); // NOI18N
+        jl_bienvenido.setText("B I E N V E N I D O");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        jLabel2.setText("Fecha de Hoy:");
+        jl_fechahoy.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jl_fechahoy.setText("Fecha de Hoy:");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        jLabel3.setText("Hora Actual:");
+        jl_hora.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jl_hora.setText("Hora Actual:");
 
         jl_fecha.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jl_fecha.setForeground(new java.awt.Color(255, 255, 255));
         jl_fecha.setText("00/00/0000");
 
-        jl_hora.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jl_hora.setForeground(new java.awt.Color(255, 255, 255));
-        jl_hora.setText("00:00:00");
+        jl_horaactual.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jl_horaactual.setForeground(new java.awt.Color(255, 255, 255));
+        jl_horaactual.setText("00:00:00");
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/compu.png"))); // NOI18N
+        jl_compu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/compu.png"))); // NOI18N
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout panel_bienvenidoLayout = new javax.swing.GroupLayout(panel_bienvenido);
+        panel_bienvenido.setLayout(panel_bienvenidoLayout);
+        panel_bienvenidoLayout.setHorizontalGroup(
+            panel_bienvenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_bienvenidoLayout.createSequentialGroup()
                 .addContainerGap(14, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jl_hora)
+                .addGroup(panel_bienvenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jl_horaactual)
                     .addComponent(jl_fecha)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
+                    .addComponent(jl_bienvenido, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jl_fechahoy)
+                    .addComponent(jl_hora))
                 .addContainerGap())
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(panel_bienvenidoLayout.createSequentialGroup()
                 .addGap(45, 45, 45)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jl_compu, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        panel_bienvenidoLayout.setVerticalGroup(
+            panel_bienvenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_bienvenidoLayout.createSequentialGroup()
                 .addGap(59, 59, 59)
-                .addComponent(jLabel1)
+                .addComponent(jl_bienvenido)
                 .addGap(32, 32, 32)
-                .addComponent(jLabel2)
+                .addComponent(jl_fechahoy)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jl_fecha)
                 .addGap(39, 39, 39)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jl_hora)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jl_horaactual)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jl_compu, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel5.setFont(new java.awt.Font("HP Simplified", 3, 36)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel5.setText("BOROA CLUD");
+        jl_empresa.setFont(new java.awt.Font("HP Simplified", 3, 36)); // NOI18N
+        jl_empresa.setForeground(new java.awt.Color(0, 102, 102));
+        jl_empresa.setText("BOROA CLUD");
 
         jb_subir.setBackground(new java.awt.Color(255, 102, 102));
         jb_subir.setFont(new java.awt.Font("Times New Roman", 3, 12)); // NOI18N
@@ -115,85 +121,91 @@ public class LabHilos extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        jLabel6.setText("Subiendo Archivo:");
+        jl_subiendo.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        jl_subiendo.setText("Subiendo Archivo:");
 
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
-        jLabel7.setText("Archivo:");
+        lj_archivo.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
+        lj_archivo.setText("Archivo:");
 
         jt_area.setBackground(new java.awt.Color(255, 153, 153));
         jt_area.setColumns(20);
+        jt_area.setForeground(new java.awt.Color(255, 255, 255));
         jt_area.setRows(5);
-        jScrollPane1.setViewportView(jt_area);
+        area.setViewportView(jt_area);
 
         jb_agregar.setBackground(new java.awt.Color(255, 102, 102));
         jb_agregar.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jb_agregar.setForeground(new java.awt.Color(255, 255, 255));
-        jb_agregar.setText("Agregar & Modificar");
+        jb_agregar.setText("Guardar & Modificar");
+        jb_agregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_agregarActionPerformed(evt);
+            }
+        });
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/download-removebg-preview (11).png"))); // NOI18N
+        jl_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/download-removebg-preview (11).png"))); // NOI18N
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout panel_fondoLayout = new javax.swing.GroupLayout(panel_fondo);
+        panel_fondo.setLayout(panel_fondoLayout);
+        panel_fondoLayout.setHorizontalGroup(
+            panel_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_fondoLayout.createSequentialGroup()
+                .addComponent(panel_bienvenido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panel_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_fondoLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel7)
+                        .addComponent(lj_archivo)
                         .addGap(215, 215, 215))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(panel_fondoLayout.createSequentialGroup()
+                        .addGroup(panel_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel_fondoLayout.createSequentialGroup()
+                                .addGroup(panel_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panel_fondoLayout.createSequentialGroup()
                                         .addGap(142, 142, 142)
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jl_empresa, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(panel_fondoLayout.createSequentialGroup()
                                         .addGap(204, 204, 204)
                                         .addComponent(jb_subir))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGroup(panel_fondoLayout.createSequentialGroup()
                                         .addGap(70, 70, 70)
-                                        .addComponent(jLabel6)))
+                                        .addComponent(jl_subiendo)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jl_logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(panel_fondoLayout.createSequentialGroup()
+                                .addGroup(panel_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panel_fondoLayout.createSequentialGroup()
                                         .addGap(49, 49, 49)
                                         .addComponent(jp_barra, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGroup(panel_fondoLayout.createSequentialGroup()
                                         .addGap(51, 51, 51)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(area, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(panel_fondoLayout.createSequentialGroup()
                                         .addGap(189, 189, 189)
                                         .addComponent(jb_agregar)))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+        panel_fondoLayout.setVerticalGroup(
+            panel_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panel_bienvenido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panel_fondoLayout.createSequentialGroup()
+                .addGroup(panel_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panel_fondoLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addComponent(jLabel5)
+                        .addComponent(jl_empresa)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jb_subir)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel6))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jl_subiendo))
+                    .addGroup(panel_fondoLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jl_logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jp_barra, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
+                .addComponent(lj_archivo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(area, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jb_agregar)
                 .addContainerGap(17, Short.MAX_VALUE))
@@ -203,11 +215,11 @@ public class LabHilos extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel_fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel_fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -229,8 +241,23 @@ public class LabHilos extends javax.swing.JFrame {
             Thread bcorre = new Thread(corre);
             bcorre.start();
         }
-        
+
     }//GEN-LAST:event_jb_subirActionPerformed
+
+    private void jb_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_agregarActionPerformed
+        try {
+            FileWriter fw = new FileWriter(dato, false);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(jt_area.getText());
+            bw.flush();
+            bw.close();
+            fw.close();
+            JOptionPane.showMessageDialog(this, "Se ha modificado el archivo con exito.");
+        } catch (IOException ex) {
+            Logger.getLogger(LabHilos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_jb_agregarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -271,22 +298,22 @@ public class LabHilos extends javax.swing.JFrame {
     File dato;
     Barra corre;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane area;
     private javax.swing.JButton jb_agregar;
     private javax.swing.JButton jb_subir;
+    private javax.swing.JLabel jl_bienvenido;
+    private javax.swing.JLabel jl_compu;
+    private javax.swing.JLabel jl_empresa;
     private javax.swing.JLabel jl_fecha;
+    private javax.swing.JLabel jl_fechahoy;
     private javax.swing.JLabel jl_hora;
+    private javax.swing.JLabel jl_horaactual;
+    private javax.swing.JLabel jl_logo;
+    private javax.swing.JLabel jl_subiendo;
     private javax.swing.JProgressBar jp_barra;
     private javax.swing.JTextArea jt_area;
+    private javax.swing.JLabel lj_archivo;
+    private javax.swing.JPanel panel_bienvenido;
+    private javax.swing.JPanel panel_fondo;
     // End of variables declaration//GEN-END:variables
 }

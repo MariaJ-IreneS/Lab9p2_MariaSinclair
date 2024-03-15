@@ -31,7 +31,7 @@ public class Barra implements Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            progreso += 10;
+            progreso += 2;
         }
         cargarArchivo();
     }
