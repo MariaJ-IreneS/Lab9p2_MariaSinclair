@@ -23,7 +23,17 @@ public class Barra implements Runnable {
 
     @Override
     public void run() {
-        
+        int progreso = 0;
+        while (progreso <= 100) {
+            jp_barra.setValue(progreso);
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            progreso += 10;
+        }
+        cargarArchivo();
     }
 
     public void cargarArchivo() {

@@ -215,8 +215,8 @@ public class LabHilos extends javax.swing.JFrame {
 
     private void jb_subirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_subirActionPerformed
         JFileChooser seleccionar = new JFileChooser("./");
-        FileNameExtensionFilter agregar = new FileNameExtensionFilter("Archivos.txt", "txt");
-        seleccionar.setFileFilter(agregar);
+        FileNameExtensionFilter permitidos = new FileNameExtensionFilter("Archivos.txt", "txt");
+        seleccionar.setFileFilter(permitidos);
         int seleccionado = seleccionar.showOpenDialog(this);
 
         if (seleccionado == JFileChooser.APPROVE_OPTION) {
@@ -229,6 +229,7 @@ public class LabHilos extends javax.swing.JFrame {
             Thread bcorre = new Thread(corre);
             bcorre.start();
         }
+        
     }//GEN-LAST:event_jb_subirActionPerformed
 
     /**
