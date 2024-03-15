@@ -1,5 +1,9 @@
 package Lab9;
 
+import java.io.File;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 public class LabHilos extends javax.swing.JFrame {
 
     public LabHilos() {
@@ -210,7 +214,21 @@ public class LabHilos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jb_subirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_subirActionPerformed
-        // TODO add your handling code here:
+        JFileChooser seleccionar = new JFileChooser("./");
+        FileNameExtensionFilter agregar = new FileNameExtensionFilter("Archivos.txt", "txt");
+        seleccionar.setFileFilter(agregar);
+        int seleccionado = seleccionar.showOpenDialog(this);
+
+        if (seleccionado == JFileChooser.APPROVE_OPTION) {
+            dato = seleccionar.getSelectedFile();
+            jt_area.setText("");
+
+            jp_barra.setValue(100);
+
+            corre = new Barra(jp_barra, jt_area, dato);
+            Thread bcorre = new Thread(corre);
+            bcorre.start();
+        }
     }//GEN-LAST:event_jb_subirActionPerformed
 
     /**
@@ -249,6 +267,8 @@ public class LabHilos extends javax.swing.JFrame {
     }
 
     Fecha_Hora mostrar;
+    File dato;
+    Barra corre;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
