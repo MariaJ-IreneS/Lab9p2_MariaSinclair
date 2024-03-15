@@ -1,5 +1,8 @@
 package Lab9;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JLabel;
 
 public class Fecha_Hora implements Runnable {
@@ -12,7 +15,18 @@ public class Fecha_Hora implements Runnable {
     }
 
     public void run() {
+        while (true) {
+            Date hour = new Date();
+            DateFormat fech = new SimpleDateFormat("hh:mm:ss");
+            DateFormat date = new SimpleDateFormat("dd/MM/yyyy");
+            hora.setText(fech.format(hour));
+            fecha.setText(date.format(hour));
+            try {
+                Thread.sleep(50);
+            } catch (InterruptedException ex) {
 
+            }
+        }
     }
 
 }
